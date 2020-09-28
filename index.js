@@ -14,5 +14,5 @@ app.get("/",function (req,res) {
 });
 
 app.get("/product",function (req,res) {
-    res.render("product-detail");
+    res.render("all-products");
 });
