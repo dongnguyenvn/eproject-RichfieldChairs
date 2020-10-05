@@ -239,6 +239,12 @@ h1 {
     height: 100vh;
     background-color: aquamarine;
 }
+.tabpanel_contents{
+    margin: 0 auto;
+    width: 70%;
+    display: inline-block;
+}
+
 
 
 :root {
