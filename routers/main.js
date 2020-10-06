@@ -18,7 +18,7 @@ const db = new mssql.Request();
 
 
 router.get("/",async function (req,res,next) {
-    const sql_text = "SELECT * FROM T2005E_BCB_Products"
+    const sql_text = "SELECT top 5 * FROM T2005E_BCB_Products"
     let data = {
         sanphams: []
     }
@@ -31,8 +31,17 @@ router.get("/",async function (req,res,next) {
 });
 
 
-router.get("/product",function (req,res) {
-    res.render("all-products");
+router.get("/product",async function (req,res) {
+    const sql_text = "SELECT * FROM T2005E_BCB_Products"
+    let data = {
+        sanphams: []
+    }
+    try {
+        const rows = await db.query(sql_text);
+        data.sanphams = rows.recordsets[0];
+    }catch (e) {
+    }
+    res.render("all-products",data);
 });
 
 //product detail page

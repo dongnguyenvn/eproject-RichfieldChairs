@@ -36,7 +36,8 @@
     font-weight: bold;
 }
 .product{
-    float: left;
+    width: 95%;
+    margin: 0 auto;
     color: #707070;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
@@ -50,7 +51,6 @@
 .all-products{
     float: left;
     width: 100%;
-    margin: 0 -15px;
     padding: 35px 0 0;
 }
 .row{
@@ -59,7 +59,7 @@
     width: 100%;
 }
 .product-type{
-    padding: 0 15px;
+    margin-bottom: 30px;
 }
 .product-type .img {
     position: relative;
@@ -69,8 +69,8 @@
     transition: opacity 600ms ease 0s;
 }
 img{
-    width: 290px;
-    height: 385px;
+    width: 100%;
+    object-fit: cover;
 }
 .product-label{
     box-sizing: border-box;
@@ -88,7 +88,7 @@ img{
     left: 220px;
 }
 .wrapper{
-    padding: 10px 0 0;
+    padding: 20px 0 0;
     text-align: center;
     color: #202020;
     font-weight: bold;
