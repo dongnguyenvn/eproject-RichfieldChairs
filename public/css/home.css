@@ -676,17 +676,17 @@ footer .container-fluid{
     margin: 80px 0;
 }
 
-ul {
+footer ul {
     list-style-type: none;
     margin: 0;
     padding: 0
 }
 
-ul>li {
+footer ul>li {
     padding: 4px
 }
 
-ul>li:hover {
+footer ul>li:hover {
     color: #fff;
     cursor: pointer
 }

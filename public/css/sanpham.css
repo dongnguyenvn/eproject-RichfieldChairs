@@ -344,5 +344,197 @@ h1{
 
 
 
+/* navbar */
+
+
+.form-inline {
+    display: inline-block;
+}
+.navbar-default {
+    background-image: none;
+    background-color: transparent;
+    border-radius: 0px;
+    border: 0;
+    box-shadow: none;
+    padding: 10px;
+}
+.navbar {
+    height: 100px;
+    padding-top: 20px;
+}
+.navbar .navbar-brand img{
+    max-width: 80px;
+}
+.navbar ul.nav li a:hover, .navbar ul.nav li a:focus {
+    color: #333 !important;
+}
+.navbar ul.nav li.active a, .navbar ul.nav li.active a:hover, .navbar ul.nav li.active a:focus {
+    color: #333 !important;
+    background: transparent !important;
+}
+#search{
+    background: transparent;
+}
+.search-box {
+    position: relative;
+}
+.search-box input.form-control {
+    padding-right: 35px;
+    border-radius: 0;
+    padding-left: 0;
+    border-width: 0 0 1px 0;
+    box-shadow: none;
+    border-color: #000 ;
+}
+.search-box input.form-control:focus {
+    border-color: rgb(0,0,0);
+}
+.search-box .input-group-addon {
+    min-width: 35px;
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    padding: 7px 0 7px 7px;
+    height: 100%;
+}
+.search-box i {
+    color: rgb(0, 0, 0);
+    font-size: 19px;
+}
+.navbar ul li i {
+    color: rgb(0,0,0);
+    font-size: 22px;
+}
+.navbar .dropdown-menu i {
+    font-size: 16px;
+    min-width: 22px;
+}
+.navbar .dropdown.open > a {
+    background: none !important;
+}
+.navbar .dropdown-menu {
+    border-radius: 1px;
+    border-color: #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.navbar .dropdown-menu li a {
+    color: #777;
+    padding: 8px 20px;
+    line-height: normal;
+}
+.navbar .navbar-form {
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+}
+
+/* footer */
+
+footer .container-fluid{
+    padding: 0;
+}
+footer .card {
+    padding: 20px 20px;
+    color: #646771;
+    background-color: #16151a;
+}
+#footer-content{
+    margin: 80px 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+ul>li {
+    padding: 4px
+}
+
+ul>li:hover {
+    color: #fff;
+    cursor: pointer
+}
+
+hr {
+    border-width: 3px
+}
+
+.social>i {
+    padding: 1%;
+    font-size: 15px
+}
+
+.social>i:hover {
+    color: #fff;
+    cursor: pointer
+}
+
+.policy>div {
+    padding: 4px
+}
+
+.heading {
+    font-family: 'Titillium Web', sans-serif;
+    color: white
+}
+
+.divider {
+    border-top: 2px solid rgba(189, 196, 203, 0.5);
+}
+#footer_brand{
+    margin-bottom: 20px;
+}
+#footer_brand>img{
+    width: 120px;
+}
+.footer-text li{
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.footer-text li i{
+    margin-right: 6px;
+}
+.footer-text i{
+    font-size: 20px;
+}
+#footer_row2>ul{
+    padding-left: 70px;
+    font-size: 20px ;
+}
+#footer_row3 h2{
+    margin: 0 0 20px;
+}
+#email{
+    background: transparent;
+}
+.email-box input.form-control {
+    padding-right: 35px;
+    border-radius: 0;
+    padding-left: 0;
+    border-width: 0 0 1px 0;
+    box-shadow: none;
+}
+.email-box input.form-control:focus {
+    border-color: #333;
+}
+.email-box .input-group-addon {
+    border: none;
+    background: transparent;
+    z-index: 9;
+    padding: 7px 0 7px 7px;
+    height: 100%;
+    color: #fff;
+}
+.email-box i {
+    color: #fff;
+    font-size: 1em
+}
+
+
+
 
 
