@@ -77,8 +77,11 @@ router.get("/product",async function (req,res) {
     let page = req.query.page !== undefined?req.query.page:1;
     const limit = 12;
 
-    // let ajaxlitmit= parseInt(req.query.ajaxLimit)
-    // let limit = 10;
+
+    // let ajaxlimit= parseInt(req.query.ajaxLimit)
+    // let limit = isNaN(ajaxlimit)?10:ajaxlimit+10;
+    // const sql_text2 =  `SELECT TOP ${limit} * form T2005E_BCB_Products`
+
    
     const sql_text =   `SELECT * FROM T2005E_BCB_Products;
                         SELECT a.* 
@@ -233,6 +236,29 @@ router.get("/search",async function (req,res) {
     res.render("search",data);
 })
 
+// tag page
+
+router.get("/tag/:id",async function (req,res) {
+    let tagId= req.params.id;
+    const sql_text =   `SELECT * FROM T2005E_BCB_Products p INNER JOIN T2005E_BCB_Product_tag pt ON pt.ProductID = p.ID WHERE TagID = ${tagId};`
+
+    let data = {
+        products:[]
+    }
+
+    try{
+        const rows = await db.query(sql_text);
+        data.products = rows.recordset;
+        data.thuonghieus = rows.recordsets[1];
+        data.total =  rows.recordsets[3][0].total;
+        data.pageNumber = Math.ceil(data.total/limit);
+    }catch (e) {
+        
+    }
+    console.log(data.colorProducts)
+    res.render("tag-products",data);
+});
+
 
 
 // add remove products
@@ -265,7 +291,7 @@ router.get('/cart', function(req, res, next) {
     }
     var cart = new Cart(req.session.cart);
     res.render('cart', {
-        title: 'NodeJS Shopping Cart',
+        title: 'NodeJS Shopping Chair',
         products: cart.getItems(),
         totalPrice: cart.totalPrice
     });
