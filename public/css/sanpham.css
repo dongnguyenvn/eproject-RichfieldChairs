@@ -169,10 +169,12 @@ h1{
     display: flex;
 }
 .social-icons ul li{
+    display: flex;
+    justify-content:center;
+    align-items: center;
     width: 30px;
     height: 30px;
     line-height: 30px;
-    text-align: center;
     background: #e1e1e1;
     border-radius: 100%;
     margin: 0 5px;

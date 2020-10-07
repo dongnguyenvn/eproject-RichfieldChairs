@@ -169,7 +169,7 @@ body{
     overflow: hidden;
 }
 
-p{
+.container_content_inner p{
     line-height: 28px;
     transform: translateY(300px);
     animation: slideUp .8s ease-in-out forwards .8s;
@@ -245,12 +245,6 @@ h1 {
     display: inline-block;
 }
 
-
-
-:root {
-    --secondary-color: #151226;
-    --contrast-color: #BF307F;
-}
 .overlay {
     position: absolute;
     top: 0;
@@ -385,9 +379,6 @@ h1 {
 }
 
 
-
-
-
 .slider {
     margin: 0 auto;
     width: 100%;
@@ -449,8 +440,8 @@ a.slide_btn {
     justify-content: center;
     align-items: center;
     font-size: 35px;
-    background-color: #151226;
-    border: 1px solid  #151226;
+    background-color: #000;
+    border: 1px solid  #000;
     color: #fff;
     bottom: 0;
     margin: auto;
@@ -464,7 +455,7 @@ a.slide_btn {
     justify-content: center;
     align-items: center;
     font-size: 35px;
-    border: 1px solid  #151226;
+    border: 1px solid  #000;
     bottom: 0;
     margin: auto;
     position: absolute;
@@ -475,7 +466,6 @@ a.slide_btn {
 .previous_btn, .next_btn {
     cursor: pointer;
     height: 65px;
-    opacity: 0.5;
     transition: opacity 0.4s ease-in-out;
     width: 65px;
 }
@@ -498,19 +488,34 @@ a.slide_btn {
     justify-content: center;
     color: #333;
 }
+.product-type .img img{
+    width: 100%;
+}
+#tab_product .product-type .wrapper{
+    font-weight: 500;
+}
+#tab_product .product-type .wrapper a{
+    color: #000;
+}
+#tab_product .product-type .wrapper p{
+    margin: 22px 0 8px 0;
+}
 #tab_product{
     margin-top: 80px;
+}
+#tab_product>ul{
+    margin-bottom: 35px;
 }
 #tab_product_link li{
     margin: 0 30px;
 }
-#tab_product a{
-    color: rgb(112, 112, 112);
-    font-size: 24px;
+#tab_product li a{
+    color: #666;
+    font-weight: 600;
 }
 #tab_product a:focus {
     background-color: transparent !important;
-    color:#333 !important;
+    color:#000 !important;
 }
 #tab_product a:hover {
     background-color: transparent;
@@ -520,11 +525,10 @@ a.slide_btn {
     width: 93%;
 }
 #tab_categories>h3{
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 #tab_categories h3, #tab_product h3{
     font-weight: 700;
-    font-size: 35px;
 }
 
 
@@ -564,7 +568,8 @@ a.slide_btn {
 }
 #v-pills-tabContent1>div>img{
     max-width: 100%;
-    height: 100%;
+    height: 435px;
+    object-fit: cover;
 }
 #v-pills-tabContent2{
     border: 1px solid #000;
