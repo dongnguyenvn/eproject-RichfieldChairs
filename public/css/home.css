@@ -97,6 +97,23 @@ body{
     margin-left: 0;
     border: 0;
 }
+#cart-icon{
+    position: relative;
+}
+#totalitem{
+    background-color: black;
+    font-weight: 500;
+    color: white;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
 @media (min-width: 992px){
     .form-inline .input-group {
         width: 250px;
@@ -663,6 +680,22 @@ a.slide_btn {
 }
 .product-item>a:hover img{
     opacity: 0.6;
+}
+
+#brand-cooperation{
+    height: 200px;
+    margin-top: 60px;
+}
+
+#title-category{
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+#category-logo{
+    display:flex;
+    justify-content: space-around;
 }
 
 

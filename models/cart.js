@@ -5,18 +5,19 @@ module.exports = function Cart(cart) {
 
     this.add = function(item, id) {
         var cartItem = this.items[id];
+        console.log(this.items[id]);
         if (!cartItem) {
             cartItem = this.items[id] = {item: item, quantity: 0, price: 0};
         }
         cartItem.quantity++;
-        cartItem.price = cartItem.item.price * cartItem.quantity;
+        cartItem.price = cartItem.item.Price * cartItem.quantity;
         this.totalItems++;
-        this.totalPrice += cartItem.item.price;
+        this.totalPrice += cartItem.item.Price;
     };
 
     this.remove = function(id) {
         this.totalItems -= this.items[id].quantity;
-        this.totalPrice -= this.items[id].price;
+        this.totalPrice -= this.items[id].Price;
         delete this.items[id];
     };
 

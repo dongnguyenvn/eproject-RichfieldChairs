@@ -11,7 +11,10 @@
             <% products.map(e => { %>
             <li class="list-group-item clearfix">
                 <div class="col-xs-5">
-                    <strong><%= e.Name %>></strong><br/>
+                    <strong><%= e.item.Name %></strong><br/>
+                </div>
+                <div class="col-xs-5">
+                    <strong><%= e.item.Price %></strong><br/>
                 </div>
                 <div class="col-xs-2 text-right">
                     <span class="badge"><%= e.quantity %></span>

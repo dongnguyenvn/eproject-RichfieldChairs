@@ -23,35 +23,11 @@ router.get("/",async function (req,res,next) {
     let page = req.query.page !== undefined?req.query.page:1;
     const limit = 12;
     const sql_text =   `SELECT top 5 * FROM T2005E_BCB_Products;
-                        SELECT a.* 
-                            FROM T2005E_BCB_Products as a 
-                                LEFT JOIN T2005E_BCB_Categories as b ON b.CategoryID = a.CategoryID
-                                LEFT JOIN T2005E_BCB_Brand as c ON c.BrandID = a.BrandID
-                                LEFT JOIN T2005E_BCB_Product_tag as pt ON pt.ProductID = a.ID
-                                WHERE a.Name LIKE N'%${keyword}%'
-                                        OR b.CategoryName LIKE N'%${keyword}%'
-                                        OR c.BrandName LIKE N'%${keyword}%'
-                                        OR pt.TagID IN (SELECT TagID FROM T2005E_BCB_Tag WHERE TagName LIKE N'%${keyword}%')
-                                ORDER BY a.ID DESC OFFSET ${(page-1)*limit} ROWS FETCH FIRST ${limit} ROWS ONLY;
-                        SELECT count(a.ID) as total 
-                            FROM T2005E_BCB_Products as a
-                                LEFT JOIN T2005E_BCB_Categories as b ON b.CategoryID = a.CategoryID
-                                LEFT JOIN T2005E_BCB_Brand as c ON c.BrandID = a.BrandID
-                                LEFT JOIN T2005E_BCB_Product_tag as pt ON pt.ProductID = a.ID
-                                WHERE  a.Name LIKE N'%${keyword}%'
-                                        OR b.CategoryName LIKE N'%${keyword}%'
-                                        OR c.BrandName LIKE N'%${keyword}%'
-                                        OR pt.TagID IN (SELECT TagID FROM T2005E_BCB_Tag WHERE TagName LIKE N'%${keyword}%');
                         SELECT * FROM T2005E_BCB_Products p INNER JOIN T2005E_BCB_Product_tag pt ON pt.ProductID = p.ID WHERE TagID = 2;
                         SELECT * FROM T2005E_BCB_Products p INNER JOIN T2005E_BCB_Product_tag pt ON pt.ProductID = p.ID WHERE TagID = 1;
                         SELECT * FROM T2005E_BCB_Products WHERE CategoryID = 2`
     let data = {
         sanphams: [],
-        products: [],
-        page:parseInt(page),
-        keyword:keyword,
-        total:0,
-        pageNumber:1,
         colorProducts:[],
         blackProducts:[],
         sofaProducts:[]
@@ -59,12 +35,9 @@ router.get("/",async function (req,res,next) {
     try {
         const rows = await db.query(sql_text);
         data.sanphams = rows.recordsets[0];
-        data.products = rows.recordsets[1];
-        data.total =  rows.recordsets[2][0].total;
-        data.colorProducts= rows.recordsets[3];
-        data.blackProducts= rows.recordsets[4];
-        data.sofaProducts= rows.recordsets[5];
-        data.pageNumber = Math.ceil(data.total/limit);
+        data.colorProducts= rows.recordsets[1];
+        data.blackProducts= rows.recordsets[2];
+        data.sofaProducts= rows.recordsets[3];
     }catch (e) {
     }
     res.render("home",data);
@@ -248,13 +221,54 @@ router.get("/tag/:id",async function (req,res) {
     try{
         const rows = await db.query(sql_text);
         data.products = rows.recordset;
-        data.thuonghieus = rows.recordsets[1];
-        data.total =  rows.recordsets[3][0].total;
-        data.pageNumber = Math.ceil(data.total/limit);
     }catch (e) {
         
     }
     res.render("tag-products",data);
+});
+
+//category products page
+
+router.get("/category/:id",async function (req,res) {
+    let categoryId= req.params.id;
+    const sql_text =   `SELECT * FROM T2005E_BCB_Products WHERE CategoryID = ${categoryId};
+                        SELECT CategoryName FROM T2005E_BCB_Categories WHERE CategoryID = ${categoryId} `
+
+    let data = {
+        products:[],
+        CategoryName:{}
+    }
+
+    try{
+        const rows = await db.query(sql_text);
+        data.products = rows.recordsets[0];
+        data.CategoryName = rows.recordsets[1].length>0?rows.recordsets[1][0]:{};
+    }catch (e) {
+        
+    }
+    console.log(data.CategoryName)
+    res.render("category-products",data);
+});
+
+router.get("/brand/:id",async function (req,res) {
+    let BrandId= req.params.id;
+    const sql_text =   `SELECT * FROM T2005E_BCB_Products WHERE BrandID = ${BrandId};
+                        SElECT BrandName FROM T2005E_BCB_Brand WHERE BrandID = ${BrandId}`
+
+    let data = {
+        products:[],
+        BrandName:{}
+    }
+
+    try{
+        const rows = await db.query(sql_text);
+        data.products = rows.recordsets[0];
+        data.BrandName = rows.recordsets[1].length>0?rows.recordsets[1][0]:{};
+    }catch (e) {
+        
+    }
+    console.log(data.CategoryName)
+    res.render("brand-products",data);
 });
 
 //page page
@@ -268,23 +282,24 @@ router.get("/page/2",async function (req,res) {
 
 // add remove products
 
-router.get('/add/:id', async function(req, res, next) {
+router.get('/add/:id', async function(req, res) {
     let productId = req.params.id;
 
 
     const sql_text = "SELECT * FROM T2005E_BCB_Products"
     try {
         const rows = await db.query(sql_text);
-        sanphams = rows.recordsets[0];
-    }catch (e) {
-    }
-
+        var sanphams = rows.recordsets[0];
+    }catch (e) {};
+    
     var cart = new Cart(req.session.cart ? req.session.cart : {});
-    var product = sanphams.filter(function(item) {
+    var product = sanphams.filter(item => {
         return item.ID == productId;
     });
-    cart.add(product[0], productId);
+    
+    cart.add(product[0],productId);
     req.session.cart = cart;
+    console.log(cart.items);
     res.redirect('/cart');
 });
 
@@ -296,11 +311,9 @@ router.get('/cart', function(req, res, next) {
     }
     var cart = new Cart(req.session.cart);
     res.render('cart', {
-        title: 'NodeJS Shopping Chair',
         products: cart.getItems(),
         totalPrice: cart.totalPrice
     });
-    console.log(cart.getItems());
 });
 
 router.get('/remove/:id', function(req, res, next) {

@@ -38,10 +38,10 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Products<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">DINING</a></li>
-                        <li><a href="#">SOFA</a></li>
-                        <li><a href="#">LIVINGROOM</a></li>
-                        <li><a href="#">MEETING</a></li>
+                        <li><a href="/category/1">DINING</a></li>
+                        <li><a href="/category/2">SOFA</a></li>
+                        <li><a href="/category/3">LIVINGROOM</a></li>
+                        <li><a href="/category/4">MEETING</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Blog</a></li>
@@ -52,13 +52,43 @@
                 <li class="navbar-form-wrapper">
                     <form action="/search" method="get" class="navbar-form form-inline navbar-right">
                         <div class="input-group search-box">
-                            <input name="search" type="text" id="search" class="form-control" placeholder="Search Here..." value="<%= keyword %>">
+                            <input name="search" type="text" id="search" class="form-control" placeholder="Search Here...">
                             <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
                         </div>
                     </form>
                 </li>
                 <li><a href="#"><i class="far fa-user"></i></a></li>
-                <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+                <li class="dropdown">
+                    <a id="cart-icon" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <% if ((typeof session.cart.totalItems === "undefined")) { %>
+                            <div id="totalitem"><%= session.cart.totalItems %></div>
+                        <% }%>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="cart">
+                                <div class="row">
+                                        <div class="col-xs-4">
+                                            <p><%= session.cart.totalItems %></p>
+                                        </div>   
+                                        <div class="col-xs-4">
+                                            sdfasdfdsf
+                                        </div>
+                                            fdfdsfsdfa
+                                        <div class="col-xs-4 text-right">
+                                        </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="text-right">
+                                        <div class="totalPrice">Total CHF</div>
+                                        <a href="/cart/" class="btn btn-success">Procceed</a>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -381,7 +411,28 @@
         </div>
     </div>
 </section>
-
+<section id="brand-cooperation">
+    <div id="title-category">
+        <h3>brand cooperation</h3>
+    </div>
+    <div id="category-logo">
+        <div>
+            <a href="/brand/1"><img src="imgs/category1.png" alt=""></a>
+        </div>
+        <div>
+            <a href="/brand/2"><img src="imgs/category2.png" alt=""></a>
+        </div>
+        <div>
+            <a href="/brand/3"><img src="imgs/category3.png" alt=""></a>
+        </div>
+        <div>
+            <a href="/brand/4"><img src="imgs/category4.png" alt=""></a>
+        </div>
+        <div>
+            <a href="/brand/5"><img src="imgs/category5.png" alt=""></a>
+        </div>
+    </div>
+</section>
 <footer>
     <div class="container-fluid">
         <div class="card mx-5">
@@ -440,5 +491,8 @@
     </div>
 </footer>
 <script src="js/home.js"></script>
+<script type="text/javascript">
+    console.log(session.cart.totalItems)
+</script>
 </body>
 </html>
