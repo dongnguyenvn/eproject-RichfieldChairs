@@ -176,15 +176,18 @@
     });
     $('#loadMore').click( function() {
         var ajaxLimit = 5;
+        var page = 2;
         $.ajax({
-            url: '/product',
+            url: `/page/${page}`,
             method: 'GET',
             data: {ajaxLimit: ajaxLimit},
-            success: function () {
-                console.log("limit changed")
+            success: function (data) {
+                console.log(data)
+                let title = data.titel
+                $('.all-products').html(data)
+                
             }
         });
-    });
 
 </script>
 </body>
