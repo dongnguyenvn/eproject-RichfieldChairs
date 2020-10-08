@@ -259,6 +259,13 @@ router.get("/tag/:id",async function (req,res) {
     res.render("tag-products",data);
 });
 
+//page page
+
+router.get("/page/2",async function (req,res) {
+    // let page= req.params.page;
+    res.send(test)
+});
+
 
 
 // add remove products
