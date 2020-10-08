@@ -135,7 +135,7 @@ router.get("/product-detail/:id",async function (req,res) {
                         SELECT * FROM T2005E_BCB_Brand;
                         SELECT * FROM T2005E_BCB_Products WHERE ID=${productId};
                         SELECT * FROM T2005E_BCB_Review WHERE IdProduct=${productId};SELECT top 6 p.*,pt.TagID FROM T2005E_BCB_Products p INNER JOIN T2005E_BCB_Product_tag pt ON pt.ProductID = p.ID WHERE pt.TagID IN(SELECT TagID FROM T2005E_BCB_Product_tag WHERE productID = ${productId}) AND p.ID != ${productId};
-                        SELECT t.TagName FROM T2005E_BCB_Tag t INNER JOIN T2005E_BCB_Product_tag pt ON pt.TagID = t.TagID WHERE pt.ProductID = ${productId};
+                        SELECT * FROM T2005E_BCB_Tag t INNER JOIN T2005E_BCB_Product_tag pt ON pt.TagID = t.TagID WHERE pt.ProductID = ${productId};
                         SELECT a.* 
                             FROM T2005E_BCB_Products as a 
                                 LEFT JOIN T2005E_BCB_Categories as b ON b.CategoryID = a.CategoryID
@@ -230,9 +230,8 @@ router.get("/search",async function (req,res) {
         data.total =  rows.recordsets[3][0].total;
         data.pageNumber = Math.ceil(data.total/limit);
     }catch (e) {
-        //console.log(e.message);
+        
     }
-    console.log(data.colorProducts)
     res.render("search",data);
 })
 
@@ -255,7 +254,6 @@ router.get("/tag/:id",async function (req,res) {
     }catch (e) {
         
     }
-    console.log(data.colorProducts)
     res.render("tag-products",data);
 });
 
