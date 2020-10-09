@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="libs/Bootstrap3.3.7/css/bootstrap.css"/>
-    <link rel="stylesheet" href="libs/owl.carousel/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="libs/owl.carousel/owl-carousel/owl.theme.css">
-    <link rel="stylesheet" type="text/css" href="css/Allproduct.css">
-    <link rel="stylesheet" href="libs/icon/css/all.css">
+    <title>SHOP</title>
+    <link rel="stylesheet" href="/libs/Bootstrap3.3.7/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/libs/Bootstrap3.3.7/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/libs/owl.carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/libs/owl.carousel/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="/css/Allproduct.css">
+    <link rel="stylesheet" href="/libs/icon/css/all.css">
     <link rel="stylesheet" href="/font/css/all.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="libs/Bootstrap3.3.7/js/bootstrap.min.js"></script>
+    <script src="libs/owl.carousel/owl-carousel/owl.carousel.js"></script
+    <script src="/libs/jquery.zoom.min.js"></script>
 </head>
 <body>
 <%- include('navbar')%>
@@ -28,11 +31,6 @@
             <div class="item"><img src="imgs/bed-1-406x530.jpg" alt="The Last of us"></div>
         </div>
         <div id="heading">
-            <div id="home">
-                <a href="#">Home</a>
-                <span class="arrow"> > </span>
-                Shop
-            </div>
             <h1 class="heading-title">Shop</h1>
         </div>
         <div class="product">
@@ -114,9 +112,7 @@
                                 <li><a href="#">Wood</a></li>
                             </ul>
                         </li>
-                        <!--                        <li><a href="#">Color</a></li>-->
-                        <!--                        <li><a href="#">Material</a></li>-->
-                        <!--                        <li><a href="#">Sort by latest</a></li>-->
+                        <li><a href="#">Sort by latest</a></li>-->
                     </ul>
                 </aside>
                 <div class="all-products">
@@ -134,15 +130,12 @@
                             </div>
                         <% })%>
                     </div>
-                    <button id="loadMore">load more</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <%- include('footer') %>
-<script type="text/javascript" src="JS/jQuery.js"></script>
-<script src="libs/owl.carousel/owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $("#owl-demo").owlCarousel({
@@ -155,40 +148,8 @@
             itemsTablet:[768,2],
             itemsMobile :[479,1],
             pagination: false,
-
-
-            // slideSpeed: 200, //Slide speed in milliseconds
-            // paginationSpeed:false,//Pagination speed in milliseconds
-            // autoPlay:false,       //Auto play per slide. Change to any integrer for example "paginationSpeed : 8000" to play every 8 seconds
-            // goToFirst:true, //Slide to first item if autoPlay reach end
-            // goToFirstSpeed:1000, //Slide speed of goToFirst option in milliseconds
-            // navigation:false //Display "next" and "prev" buttons. Fully customizable. Note that for better control over navigation the div with arrows and pagination is outside your carousel wrapper
-            // navigationText: ["prev","next"],//You can cusomize your own text for navigation. To get empty buttons use false : "navigationText : false"
-            // pagination:true  //Show pagination.
-            // paginationNumbers:false,//Show numbers inside pagination buttons
-            // responsive:true,//You can use Owl Carousel on desktop-only websites too! Just change that to "false" to disable resposive capabilities
-            // items:5, //This variable allows you to set the maximum amount of items displayed at a time with the widest browser width
-            // itemsDesktop:[1199,4], //This allows you to preset the number of slides visible with a particular browser width. The format is [x,y] whereby x=browser width and y=number of slides displayed. For example [1199,4] means that if(window<=1199){ show 4 slides per page} Alternatively use "itemsDesktop: false" to override these settings.To fully understand how it works check my Custom Demo
-            // itemsDesktopSmall:[979,3], //As above.
-            // itemsTablet:[768,2], //As above.
-            // itemsMobile:[479,1],
         });
     });
-    $('#loadMore').click( function() {
-        var ajaxLimit = 5;
-        var page = 2;
-        $.ajax({
-            url: `/page/${page}`,
-            method: 'GET',
-            data: {ajaxLimit: ajaxLimit},
-            success: function (data) {
-                console.log(data)
-                let title = data.titel
-                $('.all-products').html(data)
-                
-            }
-        });
-
 </script>
 </body>
 </html>

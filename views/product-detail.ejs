@@ -101,7 +101,9 @@
                         <ul>
                             <li>SKU:<%= product.SKU %></li>
                             <li>Categories: Sofa</li>
-                            <li>Tags: <a href="/tag/<%= Tag.TagID %>"><%= Tag.TagName %></a>
+                            <li>Tags: <% Tag.map(e => { %>
+                                <a href="/tag/<%= e.TagID %>"><%= e.TagName %></a>,
+                            <%})%>
                         </ul>
                     </div>
                     <div class="social-icons">

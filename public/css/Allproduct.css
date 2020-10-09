@@ -52,7 +52,7 @@
     width: 100%;
     padding: 35px 0 0;
 }
-.row{
+.all-products .row{
     float: left;
     margin: 0 0 42px;
     width: 100%;
@@ -116,7 +116,7 @@ a{
     float: left;
     width: 960px;
 }
-.dropdown-toggle{
+#myNavbar .dropdown-toggle{
     float: left;
     width: 160px;
     padding: 0 15px;
@@ -213,10 +213,11 @@ a{
 
 /*footer*/
 
-footer.container-fluid{
+.container-fluid{
+    background-color: #16151a;
     padding: 0;
 }
-footer.card {
+.card {
     padding: 20px 20px;
     color: #646771;
     background-color: #16151a;

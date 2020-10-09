@@ -5,17 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HomeHome</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="font/css/all.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="libs/owlcarousel2/owl.carousel.min.css">
     <link rel="stylesheet" href="libs/owlcarousel2/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <script src="libs/owlcarousel2/owl.carousel.min.js"></script>
-    <script src="libs/jquery.zoom.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
@@ -61,31 +66,26 @@
                 <li class="dropdown">
                     <a id="cart-icon" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                        <% if ((typeof session.cart.totalItems === "undefined")) { %>
-                            <div id="totalitem"><%= session.cart.totalItems %></div>
-                        <% }%>
                     </a>
                     <div class="dropdown-menu">
                         <div class="cart">
                                 <div class="row">
-                                        <div class="col-xs-4">
-                                            <p><%= session.cart.totalItems %></p>
-                                        </div>   
-                                        <div class="col-xs-4">
-                                            sdfasdfdsf
-                                        </div>
-                                            fdfdsfsdfa
-                                        <div class="col-xs-4 text-right">
-                                        </div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="text-right">
-                                        <div class="totalPrice">Total CHF</div>
-                                        <a href="/cart/" class="btn btn-success">Procceed</a>
+                                    <div class="col-xs-4">
+                                        <p>Name</p>
+                                    </div>   
+                                    <div class="col-xs-4">
+                                        sdfasdfdsf
                                     </div>
+                                        fdfdsfsdfa
+                                    <div class="col-xs-4 text-right">
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-right">
+                                    <div class="totalPrice">Total CHF</div>
+                                    <a href="/cart/" class="btn btn-success">Procceed</a>
                                 </div>
-                            
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -194,45 +194,73 @@
     </ul>
     <div class="tab-content" id="myTabContent_product">
         <div class="tab-pane fade in active" id="one" role="tabpanel" aria-labelledby="one-tab">
-            <div class="tabpanel_contents">
-                <div class="product-type col-sm-3 col-md-3 col-lg-3">
-                    <div class="img">
-                        <img src="imgs/46_2.jpg" alt="Fadeout">
-                    </div>
-                    <div class="wrapper">
-                        <p class="product-name"><a href="#">Chair project</a></p>
-                        <span>$</span>
-                        345
-                    </div>
-                </div>
-                <div class="product-type col-sm-3 col-md-3 col-lg-3">
-                    <div class="img">
-                        <img src="imgs/46_2.jpg" alt="Fadeout">
-                    </div>
-                    <div class="wrapper">
-                        <p class="product-name"><a href="#">Chair project</a></p>
-                        <span>$</span>
-                        345
+            <div class="tabpanel_contents">     
+                <div class="product col-sm-3 col-md-3 col-lg-3">
+                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
+                    <div class="specifies">
+                        <p>Analog Watch</p>
+                        <div class="price">$1500</div>
+                        <div>
+                            <button class="btn">Buy Now</button>
+                            <button class="btn">Buy Now</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-type col-sm-3 col-md-3 col-lg-3">
-                    <div class="img">
-                        <img src="imgs/46_2.jpg" alt="Fadeout">
-                    </div>
-                    <div class="wrapper">
-                        <p class="product-name"><a href="#">Chair project</a></p>
-                        <span>$</span>
-                        345
+                <div class="product col-sm-3 col-md-3 col-lg-3">
+                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
+                    <div class="specifies">
+                        <p>Analog Watch</p>
+                        <div class="price">$1500</div>
+                        <div>
+                            <button class="btn ">Buy Now</button>
+                            <button class="btn ">Buy Now</button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-type col-sm-3 col-md-3 col-lg-3">
-                    <div class="img">
-                        <img src="imgs/46_2.jpg" alt="Fadeout">
+                <div class="product col-sm-3 col-md-3 col-lg-3">
+                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
+                    <div class="specifies">
+                        <p>Analog Watch</p>
+                        <div class="price">$1500</div>
+                        <div>
+                            <button class="btn">Buy Now</button>
+                            <button class="btn">Buy Now</button>
+                        </div>
                     </div>
-                    <div class="wrapper">
-                        <p class="product-name"><a href="#">Chair project</a></p>
-                        <span>$</span>
-                        345
+                </div>
+                <div class="product col-sm-3 col-md-3 col-lg-3">
+                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
+                    <div class="specifies">
+                        <p>Analog Watch</p>
+                        <div class="price">$1500</div>
+                        <div>
+                            <button class="btn ">Buy Now</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Launch demo modal
+                            </button>
+                              
+                              <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body row">
+                                            <div class="modal_content col-12 col-lg-6">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                <span class="bg ">EXCLUSIVE</span>
+                                                <p class="modal_content_title animate__animated animate__fadeInLeftBig">baseball chair</p>
+                                                <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
+                                                <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
+                                                <div class="button_modal animate__animated animate__fadeInLeftBig">
+                                                    <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                            <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"/> </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -489,10 +517,8 @@
             </div>
         </div>
     </div>
+
 </footer>
 <script src="js/home.js"></script>
-<script type="text/javascript">
-    console.log(session.cart.totalItems)
-</script>
 </body>
 </html>

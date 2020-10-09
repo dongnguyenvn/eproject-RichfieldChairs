@@ -456,7 +456,7 @@ ul>li {
     padding: 4px
 }
 
-ul>li:hover {
+footer ul>li:hover {
     color: #fff;
     cursor: pointer
 }
