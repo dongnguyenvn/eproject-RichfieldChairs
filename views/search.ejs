@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="libs/Bootstrap3.3.7/css/bootstrap.css"/>
-    <link rel="stylesheet" href="libs/owl.carousel/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="libs/owl.carousel/owl-carousel/owl.theme.css">
-    <link rel="stylesheet" type="text/css" href="css/Allproduct.css">
-    <link rel="stylesheet" href="libs/icon/css/all.css">
+    <link rel="stylesheet" href="/libs/Bootstrap3.3.7/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/libs/owl.carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/libs/owl.carousel/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="/css/Allproduct.css">
+    <link rel="stylesheet" href="/font/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,8 +17,20 @@
 <%- include('navbar')%>
 <section class="section">
     <div class="container">
+        <% if(total == 0) { %>
+            <div id="heading">
+                <h1 class="heading-title">SEARCH RESULTS : "<%= keyword %>"</h1>
+            </div>
+            <div class="cart_empty">
+                <div>
+                    <i class="fas fa-exclamation"></i>
+                </div>
+                <p>No products were found matching your selection.</p>
+                <a href="/product"><button type="button">RETURN TO SHOP</button></a>
+            </div>
+        <% } else { %>
         <div id="heading">
-            <h1 class="heading-title">Đã tìm thấy <%= total %> kết quả với từ khóa "<%= keyword %>"</h1>
+            <h1 class="heading-title">Found <%= total %> search results with the keyword : "<%= keyword %>"</h1>
         </div>
         <div class="product">
             <div class="nav-bar">
@@ -114,6 +126,7 @@
                 </div>
             </div>
         </div>
+        <%}%>
     </div>
 </section>
 

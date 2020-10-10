@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HomeHome</title>
+    <title>RichfieldChairs | Clean & Furniture </title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -26,7 +26,7 @@
 <body>
 
 <div class="container-fluid main">
-    <nav class="navbar navbar-default navbar-expand-lg">
+    <nav id="navbarpage" class="navbar navbar-default navbar-expand-lg">
         <div class="navbar-header">
             <a class="navbar-brand" href="#"><img src="imgs/logo.png" alt=""></a>
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -49,8 +49,6 @@
                         <li><a href="/category/4">MEETING</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Page</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -63,31 +61,13 @@
                     </form>
                 </li>
                 <li><a href="#"><i class="far fa-user"></i></a></li>
-                <li class="dropdown">
-                    <a id="cart-icon" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <li id="cart__icon">
+                    <a href="/cart">
                         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                     </a>
-                    <div class="dropdown-menu">
-                        <div class="cart">
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <p>Name</p>
-                                    </div>   
-                                    <div class="col-xs-4">
-                                        sdfasdfdsf
-                                    </div>
-                                        fdfdsfsdfa
-                                    <div class="col-xs-4 text-right">
-                                    </div>
-                            </div>
-                            <div class="row">
-                                <div class="text-right">
-                                    <div class="totalPrice">Total CHF</div>
-                                    <a href="/cart/" class="btn btn-success">Procceed</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <span id="cart__icon__item">
+                        <%= session.cart.totalItems %>
+                    </span>
                 </li>
             </ul>
         </div>
@@ -194,85 +174,240 @@
     </ul>
     <div class="tab-content" id="myTabContent_product">
         <div class="tab-pane fade in active" id="one" role="tabpanel" aria-labelledby="one-tab">
-            <div class="tabpanel_contents">     
-                <div class="product col-sm-3 col-md-3 col-lg-3">
-                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
-                    <div class="specifies">
-                        <p>Analog Watch</p>
-                        <div class="price">$1500</div>
-                        <div>
-                            <button class="btn">Buy Now</button>
-                            <button class="btn">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product col-sm-3 col-md-3 col-lg-3">
-                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
-                    <div class="specifies">
-                        <p>Analog Watch</p>
-                        <div class="price">$1500</div>
-                        <div>
-                            <button class="btn ">Buy Now</button>
-                            <button class="btn ">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product col-sm-3 col-md-3 col-lg-3">
-                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
-                    <div class="specifies">
-                        <p>Analog Watch</p>
-                        <div class="price">$1500</div>
-                        <div>
-                            <button class="btn">Buy Now</button>
-                            <button class="btn">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product col-sm-3 col-md-3 col-lg-3">
-                    <div class="imgbox"> <img src=https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"></div>
-                    <div class="specifies">
-                        <p>Analog Watch</p>
-                        <div class="price">$1500</div>
-                        <div>
-                            <button class="btn ">Buy Now</button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                Launch demo modal
-                            </button>
-                              
-                              <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-body row">
-                                            <div class="modal_content col-12 col-lg-6">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                                                <span class="bg ">EXCLUSIVE</span>
-                                                <p class="modal_content_title animate__animated animate__fadeInLeftBig">baseball chair</p>
-                                                <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
-                                                <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
-                                                <div class="button_modal animate__animated animate__fadeInLeftBig">
-                                                    <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+            <div class="tabpanel_contents">
+                <% livingProducts.map(e => {%>
+                    <div class="item col-sm-3 col-md-3 col-lg-3">
+                        <div class="product-item">
+                            <div class="product-item-thumbnail">
+                                <a href="#">
+                                    <img src="/<%= e.Photo %>"/>
+                                </a>
+                                <div >
+                                    <!-- Modal -->
+                                    <div id="myModal<%= e.ID %>" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+    
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-body row">
+                                                    <div class="modal_content col-12 col-lg-6">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                        <span class="bg ">EXCLUSIVE</span>
+                                                        <p class="modal_content_title animate__animated animate__fadeInLeftBig"><%= e.Name %></p>
+                                                        <p class="animate__animated animate__fadeInLeftBig"><%= e.Description %></p>
+                                                        <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:<%= e.SKU %></p>
+                                                        <div class="button_modal animate__animated animate__fadeInLeftBig">
+                                                            <a href="#">$ 115</a><a class="cart-btn" href="/add/<%= e.ID %>"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="<%= e.Photo %>"/> </div>
+    
                                                 </div>
                                             </div>
-                                            <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"/> </div>
-
+    
                                         </div>
                                     </div>
                                 </div>
+                                <div class="product-group-button four-button">
+                                    <div class="button-in quickshop">
+                                        <a data-toggle="modal" data-target="#myModal<%= e.ID %>">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <span>Quick view</span>
+                                        </a>
+                                    </div>
+                                    <div class="button-in loop-add-to-cart">
+                                        <a href="#">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            <span>Add to cart</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <div class="price">
+                                <span>$499.00</span>
                             </div>
                         </div>
                     </div>
-                </div>
+                <% })%>
             </div>
         </div>
         <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
-            2
+            <div class="tabpanel_contents">
+                <% sofa4Products.map(e => {%>
+                    <div class="item col-sm-3 col-md-3 col-lg-3">
+                        <div class="product-item">
+                            <div class="product-item-thumbnail">
+                                <a href="#">
+                                    <img src="/<%= e.Photo %>"/>
+                                </a>
+                                <div >
+                                    <!-- Modal -->
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+    
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-body row">
+                                                    <div class="modal_content col-12 col-lg-6">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                        <span class="bg ">EXCLUSIVE</span>
+                                                        <p class="modal_content_title animate__animated animate__fadeInLeftBig">baseball chair</p>
+                                                        <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
+                                                        <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
+                                                        <div class="button_modal animate__animated animate__fadeInLeftBig">
+                                                            <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"/> </div>
+    
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-group-button four-button">
+                                    <div class="button-in quickshop">
+                                        <a data-toggle="modal" data-target="#myModal">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <span>Quick view</span>
+                                        </a>
+                                    </div>
+                                    <div class="button-in loop-add-to-cart">
+                                        <a href="#">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            <span>Add to cart</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <div class="price">
+                                <span>$499.00</span>
+                            </div>
+                        </div>
+                    </div>
+                <% })%>
+            </div>
         </div>
         <div class="tab-pane fade" id="three" role="tabpanel" aria-labelledby="three-tab">
-            3
+            <div class="tabpanel_contents">
+                <% diningProducts.map(e => {%>
+                    <div class="item col-sm-3 col-md-3 col-lg-3">
+                        <div class="product-item">
+                            <div class="product-item-thumbnail">
+                                <a href="#">
+                                    <img src="/<%= e.Photo %>"/>
+                                </a>
+                                <div >
+                                    <!-- Modal -->
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+    
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-body row">
+                                                    <div class="modal_content col-12 col-lg-6">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                        <span class="bg ">EXCLUSIVE</span>
+                                                        <p class="modal_content_title animate__animated animate__fadeInLeftBig">baseball chair</p>
+                                                        <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
+                                                        <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
+                                                        <div class="button_modal animate__animated animate__fadeInLeftBig">
+                                                            <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"/> </div>
+    
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-group-button four-button">
+                                    <div class="button-in quickshop">
+                                        <a data-toggle="modal" data-target="#myModal">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <span>Quick view</span>
+                                        </a>
+                                    </div>
+                                    <div class="button-in loop-add-to-cart">
+                                        <a href="#">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            <span>Add to cart</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <div class="price">
+                                <span>$499.00</span>
+                            </div>
+                        </div>
+                    </div>
+                <% })%>
+            </div>
         </div>
         <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab">
-            4
+            <div class="tabpanel_contents">
+                <% meetingProducts.map(e => {%>
+                    <div class="item col-sm-3 col-md-3 col-lg-3">
+                        <div class="product-item">
+                            <div class="product-item-thumbnail">
+                                <a href="#">
+                                    <img src="/<%= e.Photo %>"/>
+                                </a>
+                                <div >
+                                    <!-- Modal -->
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+    
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-body row">
+                                                    <div class="modal_content col-12 col-lg-6">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                        <span class="bg ">EXCLUSIVE</span>
+                                                        <p class="modal_content_title animate__animated animate__fadeInLeftBig">baseball chair</p>
+                                                        <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
+                                                        <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
+                                                        <div class="button_modal animate__animated animate__fadeInLeftBig">
+                                                            <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"/> </div>
+    
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-group-button four-button">
+                                    <div class="button-in quickshop">
+                                        <a data-toggle="modal" data-target="#myModal">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <span>Quick view</span>
+                                        </a>
+                                    </div>
+                                    <div class="button-in loop-add-to-cart">
+                                        <a href="#">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            <span>Add to cart</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <div class="price">
+                                <span>$499.00</span>
+                            </div>
+                        </div>
+                    </div>
+                <% })%>
+            </div>
         </div>
     </div>
 </div>
@@ -328,9 +463,25 @@
                                     <% colorProducts.map(e => { %>
                                         <div class="item">
                                             <div class="product-item">
-                                                <a href="/product-detail/<%= e.ID %>">
-                                                    <img src="<%= e.Photo %>"/>
-                                                </a>
+                                                <div class="product-item-thumbnail">
+                                                    <a href="/product-detail/<%= e.ID %>">
+                                                        <img src="<%= e.Photo %>"/>
+                                                    </a>
+                                                    <div class="product-group-button four-button">
+                                                        <div class="button-in quickshop">
+                                                            <a href="#">
+                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                <span>Quick view</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="button-in loop-add-to-cart">
+                                                            <a href="#">
+                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                <span>Add to cart</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
                                                     <span>$79.00</span>
@@ -353,9 +504,25 @@
                                     <% sofaProducts.map(e => { %>
                                         <div class="item">
                                             <div class="product-item">
-                                                <a href="/product-detail/<%= e.ID %>">
-                                                    <img src="<%= e.Photo %>"/>
-                                                </a>
+                                                <div class="product-item-thumbnail">
+                                                    <a href="/product-detail/<%= e.ID %>">
+                                                        <img src="<%= e.Photo %>"/>
+                                                    </a>
+                                                    <div class="product-group-button four-button">
+                                                        <div class="button-in quickshop">
+                                                            <a href="#">
+                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                <span>Quick view</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="button-in loop-add-to-cart">
+                                                            <a href="#">
+                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                <span>Add to cart</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
                                                     <span>$79.00</span>
@@ -378,9 +545,50 @@
                                     <% blackProducts.map(e => { %>
                                         <div class="item">
                                             <div class="product-item">
-                                                <a href="/product-detail/<%= e.ID %>">
-                                                    <img src="<%= e.Photo %>"/>
-                                                </a>
+                                                <div class="product-item-thumbnail">
+                                                    <a href="/product-detail/<%= e.ID %>">
+                                                        <img src="<%= e.Photo %>"/>
+                                                    </a>
+                                                    
+
+                                                    <div class="product-group-button four-button">
+                                                        <div class="button-in quickshop">
+                                                            <a data-toggle="modal" data-target="#myModal<%= e.ID %>">
+                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                            <span>Quick view</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="button-in loop-add-to-cart">
+                                                            <a href="#">
+                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                <span>Add to cart</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Modal -->
+                                                    <div id="myModal<%= e.ID %>" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-body row">
+                                                                    <div class="modal_content col-12 col-lg-6">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                                        <span class="bg ">EXCLUSIVE</span>
+                                                                        <p class="modal_content_title animate__animated animate__fadeInLeftBig"><%= e.Name%></p>
+                                                                        <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
+                                                                        <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
+                                                                        <div class="button_modal animate__animated animate__fadeInLeftBig">
+                                                                            <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="<%= e.Photo %>"/> </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
                                                     <span>$79.00</span>
@@ -400,12 +608,28 @@
                         <div class="col-xs-12">
                             <div class="related-products">
                                 <div class="related-product-carousel owl-carousel owl-theme">
-                                    <% sanphams.map(e => { %>
+                                    <% colorProducts.map(e => { %>
                                         <div class="item">
                                             <div class="product-item">
-                                                <a href="/product-detail/<%= e.ID %>">
-                                                    <img src="<%= e.Photo %>"/>
-                                                </a>
+                                                <div class="product-item-thumbnail">
+                                                    <a href="/product-detail/<%= e.ID %>">
+                                                        <img src="<%= e.Photo %>"/>
+                                                    </a>
+                                                    <div class="product-group-button four-button">
+                                                        <div class="button-in quickshop">
+                                                            <a href="#">
+                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                <span>Quick view</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="button-in loop-add-to-cart">
+                                                            <a href="#">
+                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                <span>Add to cart</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
                                                     <span>$79.00</span>
@@ -422,6 +646,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 

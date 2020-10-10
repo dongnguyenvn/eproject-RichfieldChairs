@@ -2,6 +2,10 @@ body{
     font-family: 'Montserrat', sans-serif;
     color: rgba(32,32,32,1);
 }
+
+.caret{
+    margin-left: 10px;
+}
 .breadcrumb{
     background: #FFFFFF;
 }
@@ -343,6 +347,74 @@ h1{
 .product-item>a:hover img{
     opacity: 0.6;
 }
+.product-group-button{
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    bottom: 5px;
+    left: auto;
+    right: 10px;
+    display: flex;
+    z-index: 7;
+    transition: 350ms ease 0s;
+    visibility: hidden;
+    opacity: 0;
+    box-sizing: border-box;
+}
+.product-group-button > .button-in{
+    margin: 5px 0;
+    border-radius: 0;
+    color: rgba(32,32,32,1);
+    background: rgba(255,255,255,1);
+    border-color: rgba(32,32,32,1);
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    position: relative;
+    transition: 350ms ease 0s;
+}
+.product-item:hover .product-group-button{
+    opacity: 1;
+    visibility: visible;
+}
+.product-item-thumbnail{
+    position: relative;
+}
+.button-in i{
+    color: rgba(32,32,32,1);
+    font-size: 20px;
+    margin-top: 8px;
+    position: relative;
+    z-index: 10;
+}
+.button-in a{
+    text-align: center;
+    display: block;
+}
+.button-in span{
+    position: absolute;
+    right: -100%;
+    background: rgba(32,32,32,1);
+    height: 40px;
+    width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    text-align: left;
+    top: -1px;
+    line-height: 40px;
+    padding-left: 20px;
+    z-index: 9;
+    color: #FFFFFF;
+}
+.button-in:hover span{
+    opacity: 1;
+    right:0px ;
+    visibility: visible;
+}
+.button-in:hover i{
+    color: #FFFFFF;
+}
 
 
 
@@ -534,6 +606,24 @@ hr {
 .email-box i {
     color: #fff;
     font-size: 1em
+}
+
+#cart__icon{
+    position: relative;
+}
+#cart__icon__item{
+    background-color: black;
+    font-weight: 500;
+    color: white;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    position: absolute;
+    top: 6px;
+    right: 6px;
 }
 
 

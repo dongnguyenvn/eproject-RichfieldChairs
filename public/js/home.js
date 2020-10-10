@@ -109,3 +109,12 @@ $(document).ready(function(){
     var curr_img = $('.thumbnail').find('img');
     $('.thumbnail').zoom({url:curr_img.attr('src') });
 });
+
+$('.modal').on('shown.bs.modal', function() {
+    $(this).css("z-index", parseInt($('.modal-backdrop').css('z-index')) + 1);
+  });
+
+window.addEventListener('scroll',() => {
+    navbarpage = document.getElementById('navbarpage');
+    navbarpage.classList.toggle('stick',window.scrollY > 0)
+})

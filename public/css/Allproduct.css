@@ -3,12 +3,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 .section{
     width: 100%;
 }
 .container{
     width: 100%;
     margin: 0 auto;
+}
+.caret{
+    margin-left: 10px;
 }
 #owl-demo .item{
 
@@ -314,4 +318,41 @@ hr {
 .email-box i {
     color: #fff;
     font-size: 1em
+}
+
+.cart_empty{
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
+.cart_empty button{
+    background-color:#000;
+    color:#fff;
+    border:none;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    padding: 9px 20px;
+    font-weight:700;
+    font-size:12px;
+}
+.cart_empty div{
+    margin-bottom: 20px;
+}
+
+#cart__icon{
+    position: relative;
+}
+#cart__icon__item{
+    background-color: black;
+    font-weight: 500;
+    color: white;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    position: absolute;
+    top: 6px;
+    right: 6px;
 }

@@ -5,7 +5,6 @@ module.exports = function Cart(cart) {
 
     this.add = function(item, id) {
         var cartItem = this.items[id];
-        console.log(this.items[id]);
         if (!cartItem) {
             cartItem = this.items[id] = {item: item, quantity: 0, price: 0};
         }
@@ -13,13 +12,33 @@ module.exports = function Cart(cart) {
         cartItem.price = cartItem.item.Price * cartItem.quantity;
         this.totalItems++;
         this.totalPrice += cartItem.item.Price;
+        
     };
+    console.log(cart);
 
     this.remove = function(id) {
         this.totalItems -= this.items[id].quantity;
-        this.totalPrice -= this.items[id].Price;
+        this.totalPrice -= this.items[id].price;
         delete this.items[id];
     };
+
+    this.reduceByOne = function(id) {
+        this.items[id].quantity--
+        this.items[id].price -= this.items[id].item.Price
+        this.totalItems--
+        this.totalPrice -= this.items[id].item.Price
+
+        if (this.items[id].quantity <= 0) {
+            delete this.items[id]
+        }
+    }
+    this.increaseByOne = function(id) {
+        this.items[id].quantity++
+        this.items[id].price += this.items[id].item.Price
+        this.totalItems++
+        this.totalPrice += this.items[id].item.Price
+    }
+
 
     this.getItems = function() {
         var arr = [];

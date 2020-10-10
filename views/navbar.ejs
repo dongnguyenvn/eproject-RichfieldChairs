@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-expand-lg">
+<nav id="navbarpage" class="navbar navbar-default navbar-expand-lg">
     <div class="navbar-header">
         <a class="navbar-brand" href="#"><img src="/imgs/logo.png" alt=""></a>
         <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -33,7 +33,14 @@
                 </form>
             </li>
             <li><a href="#"><i class="far fa-user"></i></a></li>
-            <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+            <li id="cart__icon">
+                <a href="/cart">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                </a>
+                <span id="cart__icon__item">
+                    <%= session.cart.totalItems %>
+                </span>
+            </li>
         </ul>
     </div>
 </nav>

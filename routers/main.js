@@ -22,22 +22,31 @@ router.get("/",async function (req,res,next) {
     let keyword = req.query.search;
     let page = req.query.page !== undefined?req.query.page:1;
     const limit = 12;
-    const sql_text =   `SELECT top 5 * FROM T2005E_BCB_Products;
+    const sql_text =   `SELECT top 4 * FROM T2005E_BCB_Products where CategoryID = 1 ;
+                        SELECT top 4 * FROM T2005E_BCB_Products where CategoryID = 2 ;
+                        SELECT top 4 * FROM T2005E_BCB_Products where CategoryID = 3 ;
+                        SELECT top 4 * FROM T2005E_BCB_Products where CategoryID = 4 ;
                         SELECT * FROM T2005E_BCB_Products p INNER JOIN T2005E_BCB_Product_tag pt ON pt.ProductID = p.ID WHERE TagID = 2;
                         SELECT * FROM T2005E_BCB_Products p INNER JOIN T2005E_BCB_Product_tag pt ON pt.ProductID = p.ID WHERE TagID = 1;
-                        SELECT * FROM T2005E_BCB_Products WHERE CategoryID = 2`
+                        SELECT * FROM T2005E_BCB_Products WHERE CategoryID = 2;`
     let data = {
-        sanphams: [],
+        diningProducts: [],
+        sofa4Products: [],
+        livingProducts: [],
+        meetingProducts: [],
         colorProducts:[],
         blackProducts:[],
-        sofaProducts:[]
+        sofaProducts:[],
     }
     try {
         const rows = await db.query(sql_text);
-        data.sanphams = rows.recordsets[0];
-        data.colorProducts= rows.recordsets[1];
-        data.blackProducts= rows.recordsets[2];
-        data.sofaProducts= rows.recordsets[3];
+        data.diningProducts = rows.recordsets[0];
+        data.sofa4Products = rows.recordsets[1];
+        data.livingProducts = rows.recordsets[2];
+        data.meetingProducts = rows.recordsets[3];
+        data.colorProducts= rows.recordsets[4];
+        data.blackProducts= rows.recordsets[5];
+        data.sofaProducts= rows.recordsets[6];
     }catch (e) {
     }
     res.render("home",data);
@@ -125,7 +134,6 @@ router.get("/product-detail/:id",async function (req,res) {
     }catch (e) {
         
     }
-    console.log(data.Tag);
     res.render("product-detail",data);
 })
 
@@ -218,7 +226,6 @@ router.get("/category/:id",async function (req,res) {
     }catch (e) {
         
     }
-    console.log(data.CategoryName)
     res.render("category-products",data);
 });
 
@@ -239,7 +246,6 @@ router.get("/brand/:id",async function (req,res) {
     }catch (e) {
         
     }
-    console.log(data.CategoryName)
     res.render("brand-products",data);
 });
 
@@ -277,16 +283,34 @@ router.get('/add/:id', async function(req, res) {
 
 router.get('/cart', function(req, res, next) {
     if (!req.session.cart) {
-        return res.render('cart', {
+        return res.render('shoppingcart', {
             products: null
         });
     }
     var cart = new Cart(req.session.cart);
-    res.render('cart', {
+    res.render('shoppingcart', {
         products: cart.getItems(),
-        totalPrice: cart.totalPrice
+        totalPrice: cart.totalPrice,
+        totalItems: cart.totalItems
+        
     });
+    console.log(cart.totalItems);
 });
+router.get('/reduce/:id',function(req, res, next){
+    var productId=req.params.id;
+    var cart=new Cart(req.session.cart? req.session.cart : {});
+    cart.reduceByOne(productId);
+    req.session.cart=cart;
+    res.redirect('/cart');
+  });
+
+  router.get('/increase/:id',function(req, res, next){
+    var productId=req.params.id;
+    var cart=new Cart(req.session.cart? req.session.cart : {});
+    cart.increaseByOne(productId);
+    req.session.cart=cart;
+    res.redirect('/cart');
+  });
 
 router.get('/remove/:id', function(req, res, next) {
     var productId = req.params.id;
