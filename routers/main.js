@@ -56,16 +56,7 @@ router.get("/",async function (req,res,next) {
 
 router.get("/product",async function (req,res) {
     let keyword = req.query.search;
-    let page = req.query.page !== undefined?req.query.page:1;
-    const limit = 12;
-
-
-    // let ajaxlimit= parseInt(req.query.ajaxLimit)
-    // let limit = isNaN(ajaxlimit)?10:ajaxlimit+10;
-    // const sql_text2 =  `SELECT TOP ${limit} * form T2005E_BCB_Products`
-
-   
-    const sql_text =   `SELECT * FROM T2005E_BCB_Products;
+    const sql_text =   `SELECT top 12 * FROM T2005E_BCB_Products;
                         SELECT a.* 
                             FROM T2005E_BCB_Products as a 
                                 LEFT JOIN T2005E_BCB_Categories as b ON b.CategoryID = a.CategoryID
@@ -251,9 +242,18 @@ router.get("/brand/:id",async function (req,res) {
 
 //page page
 
-router.get("/page/2",async function (req,res) {
-    // let page= req.params.page;
-    res.send(test)
+router.get("/product/page",async function (req,res) {
+    let page = parseInt(req.query.page);
+    limit = 12;
+
+    const sql_text = `SELECT * FROM products ORDER BY a.ID DESC OFFSET ${(page-1)*limit} ROWS FETCH FIRST ${limit} ROWS ONLY`
+    try{
+        const rows = await db.query(sql_text);
+        const products = rows.recordsets[0];
+    }catch (e) {
+        
+    }
+    res.send(products)
 });
 
 
@@ -320,5 +320,11 @@ router.get('/remove/:id', function(req, res, next) {
     req.session.cart = cart;
     res.redirect('/cart');
 });
+
+
+router.get('/loadmore/:page',function(req,res) {
+    page = req.params.page;
+
+})
 
 module.exports = router;

@@ -116,7 +116,7 @@
                     </ul>
                 </aside>
                 <div class="all-products">
-                    <div class="row">
+                    <div class="row" id="product-item">
                         <% sanphams.map(e => { %>
                             <div class="product-type col-sm-3 col-md-3 col-lg-3">
                                 <div class="img">
@@ -129,6 +129,9 @@
                                 </div>
                             </div>
                         <% })%>
+                    </div>
+                    <div>
+                        <button id="btnloadmore">LOAD MORE</button>
                     </div>
                 </div>
             </div>
@@ -150,6 +153,33 @@
             pagination: false,
         });
     });
+
+    $(document).ready(() => {
+        let page = 1;
+        $('#btnloadmore').on('click', () => {
+            page = page + 1;
+            $.ajax({
+                url: `/product/page?page=${page}`,
+                type: 'GET',
+                success: (data) => {
+                    data.map(e => {
+                        let product_item_html = `<div class="product-type col-sm-3 col-md-3 col-lg-3">
+                                                    <div class="img">
+                                                        <img src="${e.Photo}" alt="Fadeout">
+                                                    </div>
+                                                    <div class="wrapper">
+                                                        <h3 class="product-name"><a href="/product-detail/${e.ID}">${e.Name}</a></h3>
+                                                        <span>$</span>
+                                                        ${e.Price}
+                                                    </div>
+                                                </div>`
+                    })
+                    $('#product-item').append(product_item_html);
+                }
+            })
+        })
+
+    })
 </script>
 </body>
 </html>
