@@ -133,313 +133,46 @@
                     <div class="related-products">
                         <h3>You may be interested in…</h3>
                         <div class="related-product-carousel owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/04-410x492.jpg"/></a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3><a href="#">Draht Hocker Sidetable</a></h3>
-                                    <div class="price">
-                                        <span>$299.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/06-410x492.jpg"/></a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
+                            <% reletedProducts.map(e => {%>
+                                <div class="item">
+                                    <div class="product-item">
+                                        <div class="product-item-thumbnail">
+                                            <a href="/products/<%= e.item.ID %>">
+                                                <img src="/<%= e.Photo %>"/></a>
+                                            <div class="product-group-button four-button">
+                                                <div class="button-in quickshop">
+                                                    <a href="#">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        <span>Quick view</span>
+                                                    </a>
+                                                </div>
+                                                <div class="button-in compare">
+                                                    <a href="#">
+                                                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                                                        <span>Compare</span>
+                                                    </a>
+                                                </div>
+                                                <div class="button-in wishlist">
+                                                    <a href="#">
+                                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                        <span>Wishlist</span>
+                                                    </a>
+                                                </div>
+                                                <div class="button-in loop-add-to-cart">
+                                                    <a href="#">
+                                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                        <span>Add to cart</span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <h3><a href="#">Klosh Wall Clock</a></h3>
-                                    <div class="price">
-                                        <span>$80.00</span>
-                                        -
-                                        <span>$129.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/16-410x492.jpg"/></a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
-                                            </div>
+                                        <h3><a href="#"><%= e.Name %></a></h3>
+                                        <div class="price">
+                                            <span>$ <%= e.Price %></span>
                                         </div>
                                     </div>
-                                    <h3><a href="#">Simple Coffee Table</a></h3>
-                                    <div class="price">
-                                        <span>$600.00</span>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/18-410x492.jpg"/></a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3><a href="#">Klosh Table Clock</a></h3>
-                                    <div class="price">
-                                        <span>$99.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/20-410x492.jpg"/></a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3><a href="#">Birdy Pendant Lamp</a></h3>
-                                    <div class="price">
-                                        <span>$399.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/23-410x492.jpg"/></a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3><a href="#">Vipp Wool Pillow</a></h3>
-                                    <div class="price">
-                                        <span>$79.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/35-410x492.jpg"/></a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3><a href="#">Solid White Oak Nightstand</a></h3>
-                                    <div class="price">
-                                        <span>$600.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-item">
-                                    <div class="product-item-thumbnail">
-                                        <a href="#">
-                                            <img src="/imgs/slideshoppingcart/37-410x492.jpg"/>
-                                        </a>
-                                        <div class="product-group-button four-button">
-                                            <div class="button-in quickshop">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <span>Quick view</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in compare">
-                                                <a href="#">
-                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                                    <span>Compare</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </div>
-                                            <div class="button-in loop-add-to-cart">
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>Add to cart</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3><a href="#">Modern Bedroom Storage</a></h3>
-                                    <div class="price">
-                                        <span>$499.00</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <%})%>
                         </div>
                         <script>
                             $('.owl-carousel').owlCarousel({

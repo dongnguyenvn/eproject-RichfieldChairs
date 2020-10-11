@@ -54,7 +54,7 @@ router.get("/",async function (req,res,next) {
 
 
 
-router.get("/product",async function (req,res) {
+router.get("/product",async function (req,res,next) {
     let keyword = req.query.search;
     const sql_text =   `SELECT top 12 * FROM T2005E_BCB_Products;
                         SELECT a.* 
@@ -257,7 +257,7 @@ router.get("/product/page",async function (req,res) {
 });
 
 //review post
-app.post("/review",async function (req,res) {
+router.post("/review",async function (req,res) {
     const NameCustomers = req.body.InputName;
     const PhoneCustomers = req.body.InputEmail;
     const Rating = req.body.rating;
@@ -275,7 +275,7 @@ app.post("/review",async function (req,res) {
 
 // add remove products
 
-router.get('/add/:id', async function(req, res) {
+router.get('/add/:id', async function(req, res,next) {
     let productId = req.params.id;
 
 
@@ -296,17 +296,37 @@ router.get('/add/:id', async function(req, res) {
     res.redirect('/cart');
 });
 
-router.get('/cart', function(req, res, next) {
+router.get('/cart', async function(req, res, next) {
     if (!req.session.cart) {
         return res.render('shoppingcart', {
             products: null
         });
     }
     var cart = new Cart(req.session.cart);
+    var totalItems = cart.totalItems;
+    var sql_text = "";
+    if(totalItems >= 600){
+        sql_text += "SELECT top 7 FROM T2005E_BCB_Products WHERE Caterogy = 5"
+    }else if(totalItems < 600 && totalItems > 190){
+        sql_text += "SELECT top 7 FROM T2005E_BCB_Products order by AverageStar DESC "
+    }else{
+        sql_text += "SELECT top 7 FROM T2005E_BCB_Products WHERE Price BETWEEN 250 AND 350 ORDER BY order by AverageStar DESC"
+    }
+    let data = {
+        reletedProducts:[]
+    }
+
+    try {
+        const rows = await db.query(sql_text);
+        data.reletedProducts = rows.recordsets[0];
+    }catch (e) {};
+
+
     res.render('shoppingcart', {
         products: cart.getItems(),
         totalPrice: cart.totalPrice,
-        totalItems: cart.totalItems
+        totalItems: totalItems,
+        reletedProducts: data.reletedProducts
         
     });
     console.log(cart.totalItems);
@@ -337,9 +357,9 @@ router.get('/remove/:id', function(req, res, next) {
 });
 
 
-router.get('/loadmore/:page',function(req,res) {
-    page = req.params.page;
-
+router.get('/faq',function(req,res) {
+    res.render('faq')
 })
+
 
 module.exports = router;
