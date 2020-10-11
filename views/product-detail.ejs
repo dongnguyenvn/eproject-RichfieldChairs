@@ -164,27 +164,33 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
                                         <h3> BE THE FIRST TO REVIEW “CYLINDO ACCENT ARM CHAIR”</h3>
-                                        <form action="#">
+                                        <form action="/" method="post">
                                             <div class="form-group">
-                                                <div class="stars">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                <div class="rating-box">
+                                                    <div class="rating-container">
+                                                        <input type="radio" name="rating" value="5" id="star-5"> <label for="star-5">&#9733;</label>
+                                        
+                                                        <input type="radio" name="rating" value="4" id="star-4"> <label for="star-4">&#9733;</label>
+                                        
+                                                        <input type="radio" name="rating" value="3" id="star-3"> <label for="star-3">&#9733;</label>
+                                        
+                                                        <input type="radio" name="rating" value="2" id="star-2"> <label for="star-2">&#9733;</label>
+                                        
+                                                        <input type="radio" name="rating" value="1" id="star-1"> <label for="star-1">&#9733;</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="Review">Your review *</label>
-                                                <textarea cols="5" class="form-control" id="Review"></textarea>
+                                                <textarea cols="5" class="form-control" id="Review" name="InputReview"></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Name *</label>
-                                                <input type="text" class="form-control" id="exampleInputName">
+                                                <input type="text" class="form-control" id="exampleInputName" name="InputName">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputEmail">Email *</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail">
+                                                <label for="examplePhone">Phone *</label>
+                                                <input type="phone" class="form-control" id="examplePhone" name="InputPhone">
                                             </div>
                                             <div class="form-group">
                                                 <input type="submit" value="ADD REVIEW">

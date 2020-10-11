@@ -246,7 +246,7 @@ router.get("/product/page",async function (req,res) {
     let page = parseInt(req.query.page);
     limit = 12;
 
-    const sql_text = `SELECT * FROM products ORDER BY a.ID DESC OFFSET ${(page-1)*limit} ROWS FETCH FIRST ${limit} ROWS ONLY`
+    const sql_text = `SELECT * FROM FROM T2005E_BCB_Products ORDER BY a.ID DESC OFFSET ${(page-1)*limit} ROWS FETCH FIRST ${limit} ROWS ONLY`
     try{
         const rows = await db.query(sql_text);
         const products = rows.recordsets[0];
@@ -256,6 +256,21 @@ router.get("/product/page",async function (req,res) {
     res.send(products)
 });
 
+//review post
+app.post("/review",async function (req,res) {
+    const NameCustomers = req.body.InputName;
+    const PhoneCustomers = req.body.InputEmail;
+    const Rating = req.body.rating;
+    const Review = req.body.InputReview;
+    const ProductID = req.body.ProductID;
+    const sql_text = `INSERT INTO FROM T2005E_BCB_Review (Commment,StarNumber,NameOfReviewer,PhoneNumber,ProductID,Time)
+                         VALUES('${Review}',${Rating},${NameCustomers},'${PhoneCustomers}',${ProductID}),Getdate();`;
+    try {
+        await db.query(sql_text);
+    }catch (e) {
+    }
+    res.redirect(`/product/${ProductID}`);
+})
 
 
 // add remove products
