@@ -169,23 +169,7 @@ a{
     color: #202020;
 }
 
-#myNavbar{
-    float: left;
-    width: 100%;
-    padding-right: 34px;
-
-}
-ul{
-    position: absolute;
-    right: 54px;
-    float: left;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: flex-end;
-}
-.dropdown{
-    float: left;
+#myNavbar .dropdown{
     list-style: none;
     width: 150px;
     margin: 0 0 0 35px;
