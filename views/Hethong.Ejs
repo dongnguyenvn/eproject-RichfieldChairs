@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop System</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/Hethong.css"/>
+    <link rel="stylesheet" href="/font/css/fontawesome.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <div id="map" style="width: 100%;height: 400px"></div>
+    </div>
+</section>
+<div class="All">
+    <div class="Content">
+        <h1>RICH FIED CHAIR EVERYWHERE</h1>
+    </div>
+    <div class="Content2">
+        <h3 class="Hours">HOURS OF OPERATION</h3> <br/>
+        <h3 class="time">10:00-21:00</h3> <br/>
+        <p class="day">MONDAY TO SATURDAY</p>
+    </div>
+    <div class="Tab">
+        <ul class="regions">
+            <li role="presentation" class="active"><a href="#Northside" aria-controls="Northside" role="tab" data-toggle="tab">Northside</a></li>
+            <li role="presentation"><a href="#Midside" aria-controls="Midside" role="tab" data-toggle="tab">Midside</a></li>
+            <li role="presentation"><a href="#Southside" aria-controls="Southside" role="tab" data-toggle="tab">Southside</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="Northside">
+                <h3 class="NS">Address</h3>
+                <a class="Address" href="#">Số 8, Tôn Thất Thuyết, Mỹ Đình, Từ Liêm, Hà Nội.</a> </br>
+                <a class="Address" href="#">Số 13, Chùa Vua, Phố Huế, Hai Bà Trưng, Hà Nội.</a>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="Midside">
+                <h3 class="MS">Address</h3>
+                <a class="Address" href="#">Số 14,Cao Thắng, Hải Châu, Đà Nẵng</a>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="Southside">
+                <h3 class="SS">Address</h3>
+                <a class="Address" href="#">590 Cách Mạng Tháng Tám, Quận 3, TPHCM</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/libs/bootstrap/js/bootstrap.js"></script>
+<script type="text/css" src="/libs/jQuery.js"></script>
+<script>
+    function initMap() {
+        var uluru = {lat: 21.0288043, lng: 105.7805116};
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 18, center: uluru});
+        var marker = new google.maps.Marker(
+            {
+                position: uluru,
+                map: map,
+                label: {
+                    text:"Số 8 Tôn Thất Thuyết",
+                    color:"green"
+                }
+            }
+        );
+    }
+</script>
+
+<script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaj0mHlR-keu-9hsR6d-gB0L9BclG04rk&callback=initMap">
+</script>
+</body>
+</html>
