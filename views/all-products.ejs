@@ -13,26 +13,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="libs/Bootstrap3.3.7/js/bootstrap.min.js"></script>
-    <script src="libs/owl.carousel/owl-carousel/owl.carousel.js"></script
+    <script src="libs/owl.carousel/owl-carousel/owl.carousel.js"></script>
     <script src="/libs/jquery.zoom.min.js"></script>
 </head>
 <body>
 <%- include('navbar')%>
 <section class="section">
     <div class="container">
-        <div id="owl-demo" class="owl-carousel owl-theme">
-            <div class="item"><img src="imgs/sofa-406x530.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="imgs/accessories-406x530.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="imgs/table-2-406x530.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="imgs/cabinet-406x530.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="imgs/chair-406x530.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="imgs/lamp-1-406x530.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="imgs/bed-1-406x530.jpg" alt="The Last of us"></div>
+        <div class="image-string">
+            <div class="item col-sm-3 col-md-3 col-lg-3" >
+                <a href="#">
+                    <img src="images/sofax.jpg" alt="The Last of us">
+                    <div class="bg"></div>
+                    <div>
+                        <p id="text1">SoFa</p>
+                        <p class="text2">2 products</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item col-sm-3 col-md-3 col-lg-3">
+                <a href="#">
+                    <img src="images/diningx.png" alt="The Last of us">
+                    <div class="bg"></div>
+                    <p class="text">Dining Chair</p>
+                    <p class="text2">2 products</p>
+                </a>
+            </div>
+            <div class="item col-sm-3 col-md-3 col-lg-3">
+                <a href="#">
+                    <img src="images/meetingx.jpg" alt="The Last of us">
+                    <div class="bg"></div>
+                    <p class="text">Meeting Chair</p>
+                    <p class="text2">2 products</p>
+                </a>
+            </div>
+            <div class="item col-sm-3 col-md-3 col-lg-3">
+                <a href="#">
+                    <img src="images/sofadonx.jpg" alt="The Last of us">
+                    <div class="bg"></div>
+                    <p id="text3">Solid Sofa</p>
+                    <p class="text2">2 products</p>
+                </a>
+            </div>
         </div>
         <div id="heading">
             <h1 class="heading-title">Shop</h1>
         </div>
         <div class="product">
+<<<<<<< HEAD
             <div class="nav-bar">
                 <div id="product-per-page">
                     <span>View</span>
@@ -134,6 +162,42 @@
                         <div id="btnloadmore"><p>LOAD MORE</p></div>
                     </div>
                 </div>
+=======
+            <div id="myNavbar">
+                <ul>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Dining Chair</a></li>
+                            <li><a href="#">Sofa</a></li>
+                            <li><a href="#">Meeting Chair</a></li>
+                            <li><a href="#">Living Room</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Brand
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Cosm</a></li>
+                            <li><a href="#">Amia</a></li>
+                            <li><a href="#">Liberty</a></li>
+                            <li><a href="#">Mirra 5</a></li>
+                            <li><a href="#">Leap</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <button class=" btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            Sort by Price
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">From Low To High</a></li>
+                            <li><a href="#">From High To Low</a></li>
+                        </ul>
+                    </li>
+                </ul>
+>>>>>>> 5d7cb960df6333bf5d3c8472e1f6d8eed5c7b87c
             </div>
         </div>
     </div>
