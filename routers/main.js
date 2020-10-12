@@ -280,6 +280,43 @@ router.get('/add/:id', async function(req, res,next) {
     res.redirect('/cart');
 });
 
+// router.get('/cart', async function(req, res, next) {
+//     if (!req.session.cart) {
+//         return res.render('shoppingcart', {
+//             products: null
+//         });
+//     }
+//     var cart = new Cart(req.session.cart);
+//     var totalItems = cart.totalItems;
+
+
+//     // var sql_text = "";
+//     // if(totalItems >= 4){
+//     //     sql_text += "SELECT top 7 * FROM T2005E_BCB_Products WHERE Caterogy = 5"
+//     // }else if(totalItems < 4 && totalItems > 1){
+//     //     sql_text += "SELECT top 7 * FROM T2005E_BCB_Products order by AverageStar DESC "
+//     // }else{
+//     //     sql_text += "SELECT top 7 * FROM T2005E_BCB_Products WHERE Price BETWEEN 200 AND 350 ORDER BY AverageStar DESC"
+//     // }
+
+//     let reletedProducts = {};
+//     // try {
+//     //     const rows = await db.query(sql_text);
+//     //     reletedProducts = rows.recordsets[0];
+//     // }catch (e) {};
+//     // console.log(sql_text);
+
+//     res.render('shoppingcart', {
+//         products: cart.getItems(),
+//         totalPrice: cart.totalPrice,
+//         totalItems: totalItems,
+//         reletedProducts : reletedProducts
+        
+//     });
+//     console.log(totalItems);
+// });
+
+
 router.get('/cart', async function(req, res, next) {
     if (!req.session.cart) {
         return res.render('shoppingcart', {
@@ -290,14 +327,14 @@ router.get('/cart', async function(req, res, next) {
     var totalItems = cart.totalItems;
     var sql_text = "";
     if(totalItems >= 4){
-        sql_text += "SELECT top 7 FROM T2005E_BCB_Products WHERE Caterogy = 5"
+        sql_text += "SELECT top 7 * FROM T2005E_BCB_Products WHERE Caterogy = 5"
     }else if(totalItems < 4 && totalItems > 1){
-        sql_text += "SELECT top 7 FROM T2005E_BCB_Products order by AverageStar DESC "
+        sql_text += "SELECT top 7 * FROM T2005E_BCB_Products order by AverageStar DESC "
     }else{
-        sql_text += "SELECT top 7 FROM T2005E_BCB_Products WHERE Price BETWEEN 250 AND 350 ORDER BY order by AverageStar DESC"
+        sql_text += "SELECT top 7 * FROM T2005E_BCB_Products WHERE Price BETWEEN 250 AND 350 ORDER BY AverageStar DESC"
     }
     let data = {
-        reletedProducts:[]
+        reletedProducts:{}
     }
 
     try {
@@ -313,7 +350,7 @@ router.get('/cart', async function(req, res, next) {
         reletedProducts: data.reletedProducts
         
     });
-    console.log(cart.totalItems);
+    console.log(data.reletedProducts);
 });
 
 
@@ -330,7 +367,10 @@ router.get('/checkout',function(req, res){
         totalPrice: cart.totalPrice,
         totalItems: cart.totalItems, 
     });
-})
+});
+
+
+
 
 router.get('/reduce/:id',function(req, res, next){
     var productId=req.params.id;
