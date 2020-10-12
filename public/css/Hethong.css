@@ -1,0 +1,67 @@
+.All{
+    box-sizing: border-box;
+    font-family: 'Secular One', sans-serif;
+}
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+}
+.Content{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+}
+.Content2{
+    text-align: center;
+}
+h1{
+    font-weight: 500;
+    font-size: 40px;
+    color: black;
+    padding-top: 30px;
+    margin: 0;
+}
+.Hours{
+    font-size: 30px;
+    font-weight: 500;
+    color: #ff0000;
+}
+.time{
+    margin: 0;
+    font-weight: 500;
+    color: #ff0000;
+}
+.day{
+    font-size: 20px;
+    color: red;
+}
+.regions{
+    list-style: none;
+    text-align: center;
+}
+.regions>li{
+    display: inline-block;
+    font-size: 30px;
+    margin-right: 60px;
+}
+.regions>li>regions1{
+    color: #c0c0c0;
+}
+.regions>li>regions1:hover{
+    color: red;
+}
+.regions>li>regions1:focus{
+    color: red;
+    text-decoration: black;
+}
+.tab-content{
+    text-align: center;
+}
+.Address{
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 30px;
+}
