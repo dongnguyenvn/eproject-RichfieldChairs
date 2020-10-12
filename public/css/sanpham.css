@@ -504,6 +504,27 @@ h1{
     border: 0;
 }
 
+.rating-box {
+    display: inline-block;
+}
+.rating-box .rating-container {
+    direction: rtl !important;
+}
+.rating-box .rating-container label {
+    display: inline-block;
+    color: #d4d4d4;
+    cursor: pointer;
+    font-size: 30px;
+    transition: color 0.2s;
+}
+.rating-box .rating-container input {
+    display: none;
+}
+.rating-box .rating-container label:hover, .rating-box .rating-container label:hover ~ label, .rating-box .rating-container input:checked ~ label {
+    color: black;
+}
+
+
 /* footer */
 
 footer .container-fluid{
@@ -624,6 +645,55 @@ hr {
     position: absolute;
     top: 6px;
     right: 6px;
+}
+
+.stars {
+    position: relative;
+    float: left;
+    font-size: 30px;
+    height: 1em;
+    line-height: 1em;
+    margin: 0 50px 0 0 ;
+}
+
+.stars:before {
+    content: "\2606\2606\2606\2606\2606";
+    float: left;
+    z-index: 1;
+    font-weight: 400;
+}
+
+.stars .percent {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.stars .percent:after {
+    content: "\2605\2605\2605\2605\2605";
+    color: #333;
+}
+
+.users_profile{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.users_name{
+    display: flex;
+    align-items:center;
+}
+.users_name>p{
+    margin: 0 0 0 6px;
+    font-weight: 600;
+}
+.users_name img{
+    border-radius: 100%;
+    width: 30px;
+}
+.users>p{
+    margin: 10px 0 0 30px
 }
 
 

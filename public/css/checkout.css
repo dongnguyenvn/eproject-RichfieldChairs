@@ -92,6 +92,7 @@ hr{
     font-weight: 700 !important;
     font-size: 12px !important;
     padding: 11px 0 !important;
+    margin-bottom: 110px !important;
 }
 .discount .input-group{
     display: flex;

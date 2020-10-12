@@ -122,7 +122,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
                         <li><a data-toggle="tab" href="#additional-information">Additional information</a></li>
-                        <li><a data-toggle="tab" href="#reviews">Reviews</a></li>
+                        <li><a data-toggle="tab" href="#reviews">Reviews (<%= totalReview?(totalReview.totalReview):'O' %>)</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -160,11 +160,26 @@
                             <div class="tab-content-wrap">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
-                                        There are no reviews yet.
+                                        <% if(totalReview){ %>
+                                            <% reviews.map(e => {%>
+                                                <div class="users">
+                                                    <div class="users_profile">
+                                                        <div class="users_name">
+                                                            <img src="/imgs/avataruser.png" alt="">
+                                                            <p><%= e.NameOfReviewer %></p>
+                                                        </div>
+                                                        <div class="stars"><div class="percent" style="width:60%"></div></div>
+                                                    </div>
+                                                    <p class="users_content"><%= e.Comment %></p>
+                                                </div>
+                                            <%})%>
+                                          <% } else{ %>  
+                                            <p>There are no reviews yet.</p>
+                                         <% } %>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
                                         <h3> BE THE FIRST TO REVIEW “CYLINDO ACCENT ARM CHAIR”</h3>
-                                        <form action="/" method="post">
+                                        <form action="/review" method="post">
                                             <input type="hidden" name="ProductID" value="<%= product.ID %>"/>
                                             <div class="form-group">
                                                 <div class="rating-box">

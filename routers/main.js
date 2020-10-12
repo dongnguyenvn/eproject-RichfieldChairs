@@ -57,41 +57,19 @@ router.get("/",async function (req,res,next) {
 router.get("/product",async function (req,res,next) {
     let keyword = req.query.search;
     const sql_text =   `SELECT top 12 * FROM T2005E_BCB_Products;
-                        SELECT a.* 
-                            FROM T2005E_BCB_Products as a 
-                                LEFT JOIN T2005E_BCB_Categories as b ON b.CategoryID = a.CategoryID
-                                LEFT JOIN T2005E_BCB_Brand as c ON c.BrandID = a.BrandID
-                                LEFT JOIN T2005E_BCB_Product_tag as pt ON pt.ProductID = a.ID
-                                WHERE a.Name LIKE N'%${keyword}%'
-                                        OR b.CategoryName LIKE N'%${keyword}%'
-                                        OR c.BrandName LIKE N'%${keyword}%'
-                                        OR pt.TagID IN (SELECT TagID FROM T2005E_BCB_Tag WHERE TagName LIKE N'%${keyword}%')
-                                ORDER BY a.ID DESC OFFSET ${(page-1)*limit} ROWS FETCH FIRST ${limit} ROWS ONLY;
-                        SELECT count(a.ID) as total 
-                            FROM T2005E_BCB_Products as a
-                                LEFT JOIN T2005E_BCB_Categories as b ON b.CategoryID = a.CategoryID
-                                LEFT JOIN T2005E_BCB_Brand as c ON c.BrandID = a.BrandID
-                                LEFT JOIN T2005E_BCB_Product_tag as pt ON pt.ProductID = a.ID
-                                WHERE  a.Name LIKE N'%${keyword}%'
-                                        OR b.CategoryName LIKE N'%${keyword}%'
-                                        OR c.BrandName LIKE N'%${keyword}%'
-                                        OR pt.TagID IN (SELECT TagID FROM T2005E_BCB_Tag WHERE TagName LIKE N'%${keyword}%');`
+                        SELECT COUNT(*) as total FROM T2005E_BCB_Products;`
  
     let data = {
         sanphams: [],
-        products: [],
-        page:parseInt(page),
-        keyword:keyword,
-        total:0,
-        pageNumber:1,
+        totalProducts:{}
     }
     try {
         const rows = await db.query(sql_text);
         data.sanphams = rows.recordsets[0];
-        data.products = rows.recordsets[1];
-        data.total =  rows.recordsets[2][0].total;
+        data.totalProducts = rows.recordsets[1].length>0?rows.recordsets[1][0]:{};
     }catch (e) {
-    } 
+    }
+    console.log(data.totalProducts)
     res.render("all-products",data);
 });
 
@@ -105,14 +83,17 @@ router.get("/product-detail/:id",async function (req,res) {
                         SELECT * FROM T2005E_BCB_Products WHERE ID=${productId};
                         SELECT * FROM T2005E_BCB_Review WHERE IdProduct=${productId};
                         SELECT top 6 p.*,pt.TagID FROM T2005E_BCB_Products p INNER JOIN T2005E_BCB_Product_tag pt ON pt.ProductID = p.ID WHERE pt.TagID IN(SELECT TagID FROM T2005E_BCB_Product_tag WHERE productID = ${productId}) AND p.ID != ${productId};
-                        SELECT t.* FROM T2005E_BCB_Tag t INNER JOIN T2005E_BCB_Product_tag pt ON pt.TagID = t.TagID WHERE pt.ProductID = ${productId};`
+                        SELECT t.* FROM T2005E_BCB_Tag t INNER JOIN T2005E_BCB_Product_tag pt ON pt.TagID = t.TagID WHERE pt.ProductID = ${productId};
+                        SELECT COUNT(ReviewID) as totalReview from T2005E_BCB_Review where IdProduct = ${productId} group by IdProduct`
     let data = {
         categories: [],
         brands: [],
         product: {},
         reviews:[],
         RelatedProduct:[],
-        Tag: []
+        Tag: [],
+        reviews: [],
+        totalReview: {}
     }
     try {
         const rows = await db.query(sql_text);
@@ -122,10 +103,12 @@ router.get("/product-detail/:id",async function (req,res) {
         data.reviews = rows.recordsets[3];
         data.RelatedProduct = rows.recordsets[4];
         data.Tag= rows.recordsets[5];
+        data.totalReview = rows.recordsets[6].length>0?rows.recordsets[6][0]:{totalReview: 0}
     }catch (e) {
         
     }
     res.render("product-detail",data);
+    console.log(data.totalReview)
 })
 
 
@@ -246,10 +229,10 @@ router.get("/product/page",async function (req,res) {
     let page = parseInt(req.query.page);
     limit = 12;
 
-    const sql_text = `SELECT * FROM FROM T2005E_BCB_Products ORDER BY a.ID DESC OFFSET ${(page-1)*limit} ROWS FETCH FIRST ${limit} ROWS ONLY`
+    const sql_text = `SELECT * FROM T2005E_BCB_Products ORDER BY ID asc OFFSET ${(page-1)*limit} ROWS FETCH FIRST ${limit} ROWS ONLY;`
     try{
         const rows = await db.query(sql_text);
-        const products = rows.recordsets[0];
+        var products = rows.recordsets[0];
     }catch (e) {
         
     }
@@ -259,17 +242,18 @@ router.get("/product/page",async function (req,res) {
 //review post
 router.post("/review",async function (req,res) {
     const NameCustomers = req.body.InputName;
-    const PhoneCustomers = req.body.InputEmail;
+    const PhoneCustomers = req.body.InputPhone;
     const Rating = req.body.rating;
     const Review = req.body.InputReview;
     const ProductID = req.body.ProductID;
-    const sql_text = `INSERT INTO FROM T2005E_BCB_Review (Commment,StarNumber,NameOfReviewer,PhoneNumber,ProductID,Time)
-                         VALUES('${Review}',${Rating},${NameCustomers},'${PhoneCustomers}',${ProductID}),Getdate();`;
+    const sql_text = `insert into T2005E_BCB_Review (Comment,StarNumber,NameOfReviewer,PhoneNumber,IdProduct)
+	                    values ('${Review}',${Rating},'${NameCustomers}','${PhoneCustomers}',${ProductID})`
     try {
         await db.query(sql_text);
     }catch (e) {
     }
-    res.redirect(`/product/${ProductID}`);
+    console.log(sql_text)
+    res.redirect(`/product-detail/${ProductID}`);
 })
 
 
@@ -305,9 +289,9 @@ router.get('/cart', async function(req, res, next) {
     var cart = new Cart(req.session.cart);
     var totalItems = cart.totalItems;
     var sql_text = "";
-    if(totalItems >= 600){
+    if(totalItems >= 4){
         sql_text += "SELECT top 7 FROM T2005E_BCB_Products WHERE Caterogy = 5"
-    }else if(totalItems < 600 && totalItems > 190){
+    }else if(totalItems < 4 && totalItems > 1){
         sql_text += "SELECT top 7 FROM T2005E_BCB_Products order by AverageStar DESC "
     }else{
         sql_text += "SELECT top 7 FROM T2005E_BCB_Products WHERE Price BETWEEN 250 AND 350 ORDER BY order by AverageStar DESC"
@@ -331,6 +315,23 @@ router.get('/cart', async function(req, res, next) {
     });
     console.log(cart.totalItems);
 });
+
+
+router.get('/checkout',function(req, res){
+    if (!req.session.cart) {
+        return res.render('shoppingcart', {
+            products: null
+        });
+    }
+    var cart = new Cart(req.session.cart);
+
+    res.render('checkout', {
+        products: cart.getItems(),
+        totalPrice: cart.totalPrice,
+        totalItems: cart.totalItems, 
+    });
+})
+
 router.get('/reduce/:id',function(req, res, next){
     var productId=req.params.id;
     var cart=new Cart(req.session.cart? req.session.cart : {});

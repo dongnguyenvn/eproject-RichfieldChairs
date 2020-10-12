@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8000;
 const main = require('./routers/main');
 
 app.listen(PORT,function () {
-    console.log("server is running.....");
+    console.log(`sever is runing on port ${PORT}`);
 });
 
 
