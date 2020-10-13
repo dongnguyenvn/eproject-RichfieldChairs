@@ -179,7 +179,7 @@
                     <div class="item col-sm-3 col-md-3 col-lg-3">
                         <div class="product-item">
                             <div class="product-item-thumbnail">
-                                <a href="#">
+                                <a href="/product-detail/<%= e.ID %>">
                                     <img src="/<%= e.Photo %>"/>
                                 </a>
                                 <div >
@@ -197,7 +197,7 @@
                                                         <p class="animate__animated animate__fadeInLeftBig"><%= e.Description %></p>
                                                         <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:<%= e.SKU %></p>
                                                         <div class="button_modal animate__animated animate__fadeInLeftBig">
-                                                            <a href="#">$ 115</a><a class="cart-btn" href="/add/<%= e.ID %>"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                            <a href="/product-detail/<%= e.ID %>">$ 115</a><a class="cart-btn" href="/add/<%= e.ID %>"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
                                                         </div>
                                                     </div>
                                                     <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="<%= e.Photo %>"/> </div>
@@ -223,9 +223,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <h3><a href="#"><%= e.Name %></a></h3>
                             <div class="price">
-                                <span>$499.00</span>
+                                <span>$<%= e.Price %></span>
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                     <div class="item col-sm-3 col-md-3 col-lg-3">
                         <div class="product-item">
                             <div class="product-item-thumbnail">
-                                <a href="#">
+                                <a href="/product-detail/<%= e.ID %>">
                                     <img src="/<%= e.Photo %>"/>
                                 </a>
                                 <div >
@@ -256,7 +256,7 @@
                                                         <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
                                                         <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
                                                         <div class="button_modal animate__animated animate__fadeInLeftBig">
-                                                            <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                            <a href="/product-detail/<%= e.ID %>">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
                                                         </div>
                                                     </div>
                                                     <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"/> </div>
@@ -275,16 +275,16 @@
                                         </a>
                                     </div>
                                     <div class="button-in loop-add-to-cart">
-                                        <a href="#">
+                                        <a href="/add/<%= e.ID %>">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <span>Add to cart</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                             <div class="price">
-                                <span>$499.00</span>
+                                <span>$<%= e.Price %></span>
                             </div>
                         </div>
                     </div>
@@ -297,7 +297,7 @@
                     <div class="item col-sm-3 col-md-3 col-lg-3">
                         <div class="product-item">
                             <div class="product-item-thumbnail">
-                                <a href="#">
+                                <a href="/product-detail/<%= e.ID %>">
                                     <img src="/<%= e.Photo %>"/>
                                 </a>
                                 <div >
@@ -334,16 +334,16 @@
                                         </a>
                                     </div>
                                     <div class="button-in loop-add-to-cart">
-                                        <a href="#">
+                                        <a href="/add/<%= e.ID %>">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <span>Add to cart</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                             <div class="price">
-                                <span>$499.00</span>
+                                <span>$<%= e.Price %></span>
                             </div>
                         </div>
                     </div>
@@ -356,7 +356,7 @@
                     <div class="item col-sm-3 col-md-3 col-lg-3">
                         <div class="product-item">
                             <div class="product-item-thumbnail">
-                                <a href="#">
+                                <a href="/product-detail/<%= e.ID %>">
                                     <img src="/<%= e.Photo %>"/>
                                 </a>
                                 <div >
@@ -374,7 +374,7 @@
                                                         <p class="animate__animated animate__fadeInLeftBig">Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
                                                         <p class="modal_content_des animate__animated animate__fadeInLeftBig">SKU:SF-008</p> 
                                                         <div class="button_modal animate__animated animate__fadeInLeftBig">
-                                                            <a href="#">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
+                                                            <a href="/product-detail/<%= e.ID %>">$ 115</a><a class="cart-btn" href="#"><i class="fas fa-shopping-cart"></i>  ADD TO CART</a>
                                                         </div>
                                                     </div>
                                                     <div class="modal_img col-12 col-lg-6"> <img class="animate__animated animate__fadeInRightBig" src="https://drile-be87.kxcdn.com/drile/wp-content/uploads/2020/06/46-410x492.jpg"/> </div>
@@ -393,16 +393,16 @@
                                         </a>
                                     </div>
                                     <div class="button-in loop-add-to-cart">
-                                        <a href="#">
+                                        <a href="/add/<%= e.ID %>">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <span>Add to cart</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <h3><a href="#">Modern Bedroom Storage</a></h3>
+                            <h3><a href="#"><%= e.Name %></a></h3>
                             <div class="price">
-                                <span>$499.00</span>
+                                <span>$<%= e.Price %></span>
                             </div>
                         </div>
                     </div>
@@ -484,9 +484,7 @@
                                                 </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
-                                                    <span>$79.00</span>
-                                                    -
-                                                    <span>$499.00</span>
+                                                    <span>$<%= e.Price %></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -525,9 +523,7 @@
                                                 </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
-                                                    <span>$79.00</span>
-                                                    -
-                                                    <span>$499.00</span>
+                                                    <span>$<%= e.Price %></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -591,9 +587,7 @@
                                                 </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
-                                                    <span>$79.00</span>
-                                                    -
-                                                    <span>$499.00</span>
+                                                    <span>$<%= e.Price %></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -632,9 +626,7 @@
                                                 </div>
                                                 <h3><a href="/product-detail/<%= e.ID %>"><%= e.Name %></a></h3>
                                                 <div class="price">
-                                                    <span>$79.00</span>
-                                                    -
-                                                    <span>$499.00</span>
+                                                    <span>$<%= e.Price %></span>
                                                 </div>
                                             </div>
                                         </div>
